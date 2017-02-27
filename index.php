@@ -1,11 +1,8 @@
 <?php
 $access_token = 'UAQF058OK6XC84MO1l1++Z9OO51IVMBz6oM9/h9kCk5H38ncTorvcrjZdfVSBlpzsBEqkth8MWoJpijZ2S46nYnRFPLzuvEE/pCrprlPqXler3II+NFqk2azgqLxTFJZugsB1JY2cKHfbMhbkzTDlgdB04t89/1O/w1cDnyilFU=';
-
+$host= "sql6.freemysqlhosting.net";
 $db = "sql6157803";
 $CHAR_SET = "charset=utf8"; 
- 
-#$username = "sql6156804";    
-#$password = "18n6QVscXg"; 
 
 $username = "sql6157803";    
 $password = "XErmELW5R3"; 
