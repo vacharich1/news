@@ -28,17 +28,18 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
-				
-			$textcut = explode(" ", $text);
-			$result = count($textcut);
-			if($result <= 1)
+			
+			
+			$arr1 = str_split($text);
+			if($arr1[0] == "@")
 			{
-				$arr1 = str_split($textcut[0]);
-				if($arr1[0] == "@")
+				$textcut = explode(" ", $text);
+				$result = count($textcut);
+				if($result <= 1)
 				{
 					$hoonname = substr($textcut[0], 1); // cut@
 					$room=$event['source']['userId'];
-					if(preg_match("/^[a-zA-Z]+$/", $hoonname) != 1) 
+					if(preg_match("/^[a-zA-Z]+$/", $hoonname) == 1) 
 					{
 						$sql = "INSERT INTO hoon_check (id, hoonname, room)
 								VALUES ('', '$hoonname', '$room')";
@@ -85,11 +86,7 @@ if (!is_null($events['events'])) {
 						curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 						$result = curl_exec($ch);
 						curl_close($ch);	
-						
-						
-							
-						
-					}
+					}					
 				}
 			}
 			else
