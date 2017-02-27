@@ -25,6 +25,7 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		//1: jayroom Ub5f45b12f0f8f8a3a08e5b52ebbcc96b
+		$text = $event['message']['text'];
 		if($event['source']['userId']=='Ub5f45b12f0f8f8a3a08e5b52ebbcc96b' || $event['source']['groupId'] =='C26d889d89b336a786c06358c1e2df27c')
 		{
 			
