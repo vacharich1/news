@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
 				$result = count($textcut);
 				if($result <= 1)
 				{
-					$hoonname = substr($textcut[0], 1); // cut@
+					$hoonname = substr($text, 1); // cut@
 					$room=$event['source']['userId'];
 					if(preg_match("/^[a-zA-Z]+$/", $hoonname) == 1) 
 					{
