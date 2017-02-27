@@ -1,6 +1,26 @@
 <?php
 $access_token = 'UAQF058OK6XC84MO1l1++Z9OO51IVMBz6oM9/h9kCk5H38ncTorvcrjZdfVSBlpzsBEqkth8MWoJpijZ2S46nYnRFPLzuvEE/pCrprlPqXler3II+NFqk2azgqLxTFJZugsB1JY2cKHfbMhbkzTDlgdB04t89/1O/w1cDnyilFU=';
+$host= "sql6.freemysqlhosting.net";
+//$db = "sql6150739";
+$db = "sql6155499";
+$CHAR_SET = "charset=utf8"; 
 
+//$username = "sql6150739";    
+//$password = "xiGjqcGnZb";   
+$username = "sql6155499";    
+$password = "xwBrDIuGaA"; 
+
+
+$link = mysqli_connect($host, $username, $password, $db);
+if (!$link) {
+		die('Could not connect: ' . mysqli_connect_errno());
+}
+else
+{
+	echo "connect";
+}
+	
+echo "bbbbb";	
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
