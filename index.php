@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 				if($result <= 1)
 				{
 					$hoonname = substr($text, 1); // cut@
-					$room=$event['source']['userId'];
+					$room=$event['source']['groupId'];
 					if(preg_match("/^[a-zA-Z]+$/", $hoonname) == 1) 
 					{
 						$sql = "INSERT INTO hoon_check (id, hoonname, room)
@@ -94,7 +94,7 @@ if (!is_null($events['events'])) {
 					if($text == '##addroombyjay')
 					{
 							$replyToken = $event['replyToken'];
-							$messages55 = ['type' => 'text','text' => $event['source']['userId']];
+							$messages55 = ['type' => 'text','text' => $event['source']['groupId']];
 							// Make a POST Request to Messaging API to reply to sender
 							$url = 'https://api.line.me/v2/bot/message/reply';
 							$data = [
