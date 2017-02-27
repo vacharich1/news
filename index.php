@@ -44,7 +44,14 @@ if (!is_null($events['events'])) {
 							if($result <= 1)
 							{
 								$hoonname = substr($text, 1); // cut@
-								$room=$event['source']['groupId'];
+								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
+								{
+									$room=$event['source']['userId'];
+								}
+								else
+								{
+									$room=$event['source']['groupId'];
+								}
 								if(preg_match("/^[a-zA-Z]+$/", $hoonname) == 1) 
 								{
 									$sql = "INSERT INTO hoon_check (id, hoonname, room)
