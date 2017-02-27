@@ -1,16 +1,42 @@
 <?php
 
 $access_token = 'cIJquyPYcHQu8Vd6t8gbLxBb5sTw5uOfXP5YNVyuIMU90zyg9bIJQmkImmsi8XOwCD/jTF2Xc1Rn3b2jvP7NZIhmswcoblMv5pynyRzCcbM/UTwIgNSiLH6rcghfGCOp1D9C7k1bB6R8dHErBxVGmgdB04t89/1O/w1cDnyilFU=';
+$host= "sql6.freemysqlhosting.net";
+$db = "sql6157803";
+$CHAR_SET = "charset=utf8"; 
+
+$username = "sql6157803";    
+$password = "XErmELW5R3"; 
+	
+
+$link = mysqli_connect($host, $username, $password, $db);
+if (!$link) {
+    	die('Could not connect: ' . mysqli_connect_errno());
+}
+else
+{
+	echo "connect";
+}
+
+$userid="";
+$sql1 = "SELECT * FROM `send_alert` WHERE 1";
+$result = $link->query($sql1);
+if ($result->num_rows > 0) {
+	while($row = $result->fetch_assoc()) {
+		$userid=$row["room"];
+	}
+
+}
 
 		
 $messages55 = ['type' => 'image',
-			   'originalContentUrl' => 'https://newsistatus.com/test1.jpg',
-			   'previewImageUrl' => 'https://newsistatus.com/test1.jpg'
+			   'originalContentUrl' => 'https://newsistatus.com/test.png',
+			   'previewImageUrl' => 'https://newsistatus.com/test.png'
 											 
 ];
 
 $data = [
-			'to' => 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b',
+			'to' => $userid,
 			'messages' => [$messages55]
 ];
 		
