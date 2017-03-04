@@ -35,10 +35,10 @@ if (!is_null($events['events'])) {
 						// Get text sent
 						$text1 = $event['message']['text'];
 						
-						$text = strtolower($text1);
-						if($text=="@s & j" || $text=="@s & J")
+						$text = strtoupper($text1);
+						if($text=="@S & J" || $text=="@s & J")
 						{
-							$text="@s&j";
+							$text="@S&J";
 						}
 						$arr1 = str_split($text);
 						if($arr1[0] == "@")
@@ -56,7 +56,7 @@ if (!is_null($events['events'])) {
 								{
 									$room=$event['source']['groupId'];
 								}
-								if(preg_match("/^[a-zA-Z&]+$/", $hoonname) == 1) 
+								if(preg_match("/^[a-zA-Z&0-9]+$/", $hoonname) == 1) 
 								{
 									$sql = "INSERT INTO hoon_check (id, hoonname, room)
 											VALUES ('', '$hoonname', '$room')";
