@@ -59,7 +59,7 @@ if (!is_null($events['events'])) {
 								{
 									$room=$event['source']['groupId'];
 								}
-								if(preg_match("/^[a-zA-Z]+$/", $hoonname) == 1) 
+								if(preg_match("/^[a-zA-Z&]+$/", $hoonname) == 1) 
 								{
 									$sql = "INSERT INTO hoon_check (id, hoonname, room)
 											VALUES ('', '$hoonname', '$room')";
