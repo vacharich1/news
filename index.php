@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
 						$text1 = $event['message']['text'];
 						
 						$text = strtolower($text1);
-						if($text=="@s & j")
+						if($text=="@s & j" || $text=="@s & J")
 						{
 							$text="@s&j";
 						}
