@@ -36,19 +36,15 @@ if (!is_null($events['events'])) {
 						$text1 = $event['message']['text'];
 						
 						$text = strtolower($text1);
+						if($text=="@s & j")
+						{
+							$text="@s&j";
+						}
 						$arr1 = str_split($text);
 						if($arr1[0] == "@")
 						{
-							if($text=="@s & j")
-							{
-								$result=1;
-								$textcut="@s&j";
-							}
-							else
-							{
-								$textcut = explode(" ", $text);
-								$result = count($textcut);
-							}
+							$textcut = explode(" ", $text);
+							$result = count($textcut);
 							if($result <= 1)
 							{
 								$hoonname = substr($text, 1); // cut@
