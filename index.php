@@ -33,15 +33,16 @@ if (!is_null($events['events'])) {
 				if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
 				{
 						// Get text sent
-						$text = $event['message']['text'];
+						$text1 = $event['message']['text'];
 						
-						
+						$text = strtolower($text1);
 						$arr1 = str_split($text);
 						if($arr1[0] == "@")
 						{
 							if($text=="@s & j")
 							{
 								$result=1;
+								$textcut="@s&j";
 							}
 							else
 							{
