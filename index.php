@@ -58,24 +58,27 @@ if (!is_null($events['events'])) {
 								}
 								if(preg_match("/^[a-zA-Z&0-9-]+$/", $hoonname) == 1) 
 								{
-									$sql = "INSERT INTO hoon_check (id, hoonname, room)
-											VALUES ('', '$hoonname', '$room')";
-											
-									if (mysqli_query($link, $sql)) {
-											echo "New record created successfully";
-									} 
-									else {
-											echo "Error: " . $sql . "<br>" . mysqli_error($link);
-									}
-									sleep(0.3);
-									$check ="check1";
-									#echo "work code";
-									$sql = "INSERT INTO `check_capture`(`id`, `check1`) VALUES ('','$check')";
-									if (mysqli_query($link, $sql)) {
-											echo "New record created successfully";
-									} 
-									else {
-											echo "Error: " . $sql . "<br>" . mysqli_error($link);
+									if($hoonname!="s50h17" || $hoonname!="s50m17" || $hoonname!="s50u17")
+									{
+										$sql = "INSERT INTO hoon_check (id, hoonname, room)
+												VALUES ('', '$hoonname', '$room')";
+												
+										if (mysqli_query($link, $sql)) {
+												echo "New record created successfully";
+										} 
+										else {
+												echo "Error: " . $sql . "<br>" . mysqli_error($link);
+										}
+										sleep(0.3);
+										$check ="check1";
+										#echo "work code";
+										$sql = "INSERT INTO `check_capture`(`id`, `check1`) VALUES ('','$check')";
+										if (mysqli_query($link, $sql)) {
+												echo "New record created successfully";
+										} 
+										else {
+												echo "Error: " . $sql . "<br>" . mysqli_error($link);
+										}
 									}
 									
 									#sleep(10);
