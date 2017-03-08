@@ -58,7 +58,7 @@ if (!is_null($events['events'])) {
 								}
 								if(preg_match("/^[a-zA-Z&0-9-]+$/", $hoonname) == 1) 
 								{
-									if($text!="@s50h17" && $text!="@s50m17" && $text!="@s50u17")
+									if($hoonname!="S50H17" && $hoonname!="S50M17" && $hoonname!="S50U17")
 									{
 										$sql = "INSERT INTO hoon_check (id, hoonname, room)
 												VALUES ('', '$hoonname', '$room')";
