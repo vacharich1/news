@@ -36,12 +36,12 @@ if (!is_null($events['events'])) {
 						$text1 = $event['message']['text'];
 						
 						$text = strtoupper($text1);
-						if($text=="@S & J" || $text=="@s & J")
+						if($text=="#S & J" || $text=="#s & J")
 						{
-							$text="@S&J";
+							$text="#S&J";
 						}
 						$arr1 = str_split($text);
-						if($arr1[0] == "@")
+						if($arr1[0] == "#")
 						{
 							$textcut = explode(" ", $text);
 							$result = count($textcut);
