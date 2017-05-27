@@ -27,7 +27,8 @@ if (!is_null($events['events'])) {
 		//1: jayroom Ub5f45b12f0f8f8a3a08e5b52ebbcc96b
 		$text = $event['message']['text'];
 		//1: jayroom Ub5f45b12f0f8f8a3a08e5b52ebbcc96b
-		if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b' || $event['source']['groupId'] == 'C08e9253e559cd164b554ddf4e2d886ca' || $event['source']['groupId'] == 'C22f27adcdfb0d1c7d3808b5b8db98f82')
+		//2: new room 1 C2363d2668ed92919faff4bb70ca6179c
+		if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b' || $event['source']['groupId'] == 'C08e9253e559cd164b554ddf4e2d886ca' || $event['source']['groupId'] == 'C22f27adcdfb0d1c7d3808b5b8db98f82' || $event['source']['groupId'] == 'C2363d2668ed92919faff4bb70ca6179c' || $event['source']['groupId'] == 'C2363d2668ed92919faff4bb70ca6179c')
 		{
 			// Reply only when message sent is in 'text' format
 				if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
