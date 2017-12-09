@@ -78,8 +78,7 @@ if (!is_null($events['events'])) {
 								  {	
 									  $text=$text." d";
 								  }
-								  
-								  $hoon_low = $textcut[1];
+								  $hoon_low = strtolower($textcut[1]);
 								  $textcut = explode(" ", $text);
 								  $result = count($textcut);
 								  $timeframe=$textcut[2];		
