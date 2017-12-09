@@ -69,6 +69,97 @@ if (!is_null($events['events'])) {
 						{
 							$textcut = explode(" ", $text);
 							$result = count($textcut);
+							
+							//send graph
+							if($textcut[0]=="@g" and $result <=3)
+							{
+								if($room == "33" or $room == "333")//close 15 111
+								{
+									/*$messages556 = ['type' => 'text','text' => "คำสั่งเรียกกราฟ ไม่สามารถเรียกในกลุ่มทดลอง โปรติดต่อ line : vacharich หรือ line : @jfourtwins\n\n ตัวอย่าง กราฟด้านล่าง aot 60 นาที"];
+									$url = 'https://api.line.me/v2/bot/message/reply';
+									$data = [
+												'replyToken' => $replyToken,
+												'messages' => [$messages556]
+											];
+									$post = json_encode($data);
+									$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+								
+									$ch = curl_init($url);
+									curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+									curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+									curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+									curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+									curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+									$result = curl_exec($ch);
+									curl_close($ch);	
+									
+									
+									$messages55 = ['type' => 'image',
+															 'originalContentUrl' => 'https://kumishabu.com/pic/picture2.JPG',
+															 'previewImageUrl' => 'https://kumishabu.com/pic/picture2.JPG'
+												  ];
+												  
+									$format_text = [
+											"type" => "text",
+											"text" => $text
+										];
+									$post_data = [
+												'to' => $userid,
+												'messages' => [$messages55]
+									];
+									$header = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+									echo "ssss";
+								 
+									$ch = curl_init('https://api.line.me/v2/bot/message/push');
+									curl_setopt($ch, CURLOPT_POST, true);
+									curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+									curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+									curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
+									curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+								 
+									$result = curl_exec($ch);
+									curl_close($ch);*/
+									
+									
+								}
+								else
+								{
+									$check ="check1";
+									if($result<3)
+									{	
+										$text=$text." d";
+									}
+									
+									$hoon_low = strtolower($textcut[1]);
+									$textcut = explode(" ", $text);
+									$result = count($textcut);
+									$timeframe="0";
+
+									$timeframe=$textcut[2];		
+									
+									$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type) VALUES ('', '$hoon_low', '$room' ,'$timeframe', '6666')";
+															
+									if (mysqli_query($link, $sql)) {
+											echo "New record created successfully";
+									} 
+									else {
+											echo "Error: " . $sql . "<br>" . mysqli_error($link);
+									}
+									$sql = "INSERT INTO `check_capture`(`id`, `check1`) VALUES ('','$check')";
+									if (mysqli_query($link, $sql)) {
+										echo "New record created successfully";
+									} 
+									else {
+										echo "Error: " . $sql . "<br>" . mysqli_error($link);
+									}
+									sleep(0.3);
+								}
+								
+							}
+							
+							
+							
+							
 							if($result <= 1)
 							{
 								$hoonname = substr($text, 1); // cut@
@@ -84,8 +175,9 @@ if (!is_null($events['events'])) {
 								{
 									//if($hoonname!="S50H17" && $hoonname!="S50M17" && $hoonname!="S50U17")
 									{
-										$sql = "INSERT INTO hoon_check (id, hoonname, room)
-												VALUES ('', '$hoonname', '$room')";
+										$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type) VALUES ('', '$hoon_low', '$room' ,'', 'old')";
+										//$sql = "INSERT INTO hoon_check (id, hoonname, room)
+										//		VALUES ('', '$hoonname', '$room')";
 												
 										if (mysqli_query($link, $sql)) {
 												echo "New record created successfully";
