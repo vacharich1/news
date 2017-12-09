@@ -175,7 +175,7 @@ if (!is_null($events['events'])) {
 								{
 									//if($hoonname!="S50H17" && $hoonname!="S50M17" && $hoonname!="S50U17")
 									{
-										$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type) VALUES ('', '$hoonname', '$room' ,'', 'old')";
+										$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type) VALUES ('', '$hoonname', '$room' , 'aaa', 'old')";
 										//$sql = "INSERT INTO hoon_check (id, hoonname, room)
 										//		VALUES ('', '$hoonname', '$room')";
 												
