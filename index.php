@@ -71,7 +71,7 @@ if (!is_null($events['events'])) {
 							$result = count($textcut);
 							
 							//send graph
-							if($textcut[0]=="@g" and $result <=3)
+							if($textcut[0]=="#g" and $result <=3)
 							{
 								if($room == "33" or $room == "333")//close 15 111
 								{
