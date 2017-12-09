@@ -71,7 +71,7 @@ if (!is_null($events['events'])) {
 							$result = count($textcut);
 							
 							//send graph
-							if($textcut[0]=="#g" and $result <=3)
+							if($textcut[0]=="#G" and $result <=3)
 							{
 								  $check ="check1";
 								  if($result<3)
