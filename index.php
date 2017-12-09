@@ -74,6 +74,14 @@ if (!is_null($events['events'])) {
 							if($textcut[0]=="#G" and $result <=3)
 							{
 								  $check ="check1";
+								  if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
+								  {
+									$room=$event['source']['userId'];
+								  }
+								  else
+								  {
+								  	$room=$event['source']['groupId'];
+								  }
 								  if($result<3)
 								  {	
 									  $text=$text." d";
