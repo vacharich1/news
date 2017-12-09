@@ -80,12 +80,11 @@ if (!is_null($events['events'])) {
 								  }
 								  
 								  $hoon_low = $textcut[1];
-								  $hoonname = substr($hoon_low, 1); // cut@
 								  $textcut = explode(" ", $text);
 								  $result = count($textcut);
 								  $timeframe=$textcut[2];		
 								  
-								  $sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type) VALUES ('', '$hoonname', '$room' ,'$timeframe', '6666')";
+								  $sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type) VALUES ('', '$hoon_low', '$room' ,'$timeframe', '6666')";
 														  
 								  if (mysqli_query($link, $sql)) {
 										  echo "New record created successfully";
