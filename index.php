@@ -58,14 +58,6 @@ if (!is_null($events['events'])) {
 								$result = curl_exec($ch);
 								curl_close($ch);
 						}	
-						if($text1=="+1")
-						{
-							$text1="#10";
-						}
-						if($text1=="-1")
-						{
-							$text1="#11";
-						}
 						if($text1=="#10")
 						{
 							$text1="100";
@@ -74,6 +66,15 @@ if (!is_null($events['events'])) {
 						{
 							$text1="111";
 						}
+						if($text1=="+1")
+						{
+							$text1="#10";
+						}
+						if($text1=="-1")
+						{
+							$text1="#11";
+						}
+						
 									
 						$text = strtoupper($text1);
 						if($text=="#S & J" || $text=="#s & J")
