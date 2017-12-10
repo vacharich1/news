@@ -60,11 +60,11 @@ if (!is_null($events['events'])) {
 						}	
 						if($text1=="+1")
 						{
-							$text="#10";
+							$text1="#10";
 						}
 						if($text1=="-1")
 						{
-							$text="#11";
+							$text1="#11";
 						}
 									
 						$text = strtoupper($text1);
