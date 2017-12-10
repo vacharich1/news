@@ -58,11 +58,11 @@ if (!is_null($events['events'])) {
 								$result = curl_exec($ch);
 								curl_close($ch);
 						}	
-						if($text=="+1")
+						if($text1=="+1")
 						{
 							$text="#10";
 						}
-						if($text=="-1")
+						if($text1=="-1")
 						{
 							$text="#11";
 						}
