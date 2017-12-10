@@ -65,13 +65,13 @@ if (!is_null($events['events'])) {
 							$text="#S&J";
 						}
 						$arr1 = str_split($text);
-						if($arr1[0] == "#")
+						if($arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
 						{
 							$textcut = explode(" ", $text);
 							$result = count($textcut);
 							
 							//send graph
-							if($textcut[0]=="#G" and $result <=3)
+							if($textcut[0]=="C" and $result <=3 and $result >1)
 							{
 								  $check ="check1";
 								  if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
