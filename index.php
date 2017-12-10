@@ -66,6 +66,14 @@ if (!is_null($events['events'])) {
 						{
 							$text1="#11";
 						}
+						if($text1=="#10")
+						{
+							$text1="100";
+						}
+						if($text1=="#11")
+						{
+							$text1="111";
+						}
 									
 						$text = strtoupper($text1);
 						if($text=="#S & J" || $text=="#s & J")
