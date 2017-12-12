@@ -61,7 +61,7 @@ if (!is_null($events['events'])) {
 						if($text == 'วิธีใช้')
 						{
 								$replyToken = $event['replyToken'];
-								$messages66 = ['type' => 'text','text' => "คำสั่ง \n\n เรียก กราฟ C honname timeframe\nEx : C aot 60 โดยเรียกได้ทุก timeframe \n\nข้อมูลหุ้น #hoonname\nEx : #aot \n\n+1 -1 และ  #O\n"];
+								$messages66 = ['type' => 'text','text' => "คำสั่ง \n\n เรียก กราฟ\n C honname timeframe\nEx : C aot 60 โดยเรียกได้ทุก timeframe \n\nข้อมูลหุ้น #hoonname\nEx : #aot \n\n+1 -1 และ  #O\n"];
 								$url = 'https://api.line.me/v2/bot/message/reply';
 								$data = [
 											'replyToken' => $replyToken,
