@@ -58,6 +58,27 @@ if (!is_null($events['events'])) {
 								$result = curl_exec($ch);
 								curl_close($ch);
 						}	
+						if($text == 'วิธีใช้')
+						{
+								$replyToken = $event['replyToken'];
+								$messages66 = ['type' => 'text','text' => "คำสั่ง \n\n เรียก กราฟ C honname timeframe\nEx : C aot 60 โดยเรียกได้ทุก timeframe \n\nข้อมูลหุ้น #hoonname\nEx : #aot \n\n+1 -1 และ  #O\n"];
+								$url = 'https://api.line.me/v2/bot/message/reply';
+								$data = [
+											'replyToken' => $replyToken,
+											'messages' => [$messages66]
+										];
+								$post = json_encode($data);
+								$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+										
+								$ch = curl_init($url);
+								curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+								curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+								curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+								curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+								curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+								$result = curl_exec($ch);
+								curl_close($ch);
+						}	
 						if($text1=="#10")
 						{
 							$text1="100";
