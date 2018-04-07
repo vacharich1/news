@@ -104,7 +104,7 @@ if (!is_null($events['events'])) {
 						}
 						
 						$arr1 = str_split($text);
-						if($text1 == "++" || $arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
+						if($text1 == "*" || $arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
 						{
 							$textcut = explode(" ", $text);
 							$result = count($textcut);
@@ -237,9 +237,9 @@ if (!is_null($events['events'])) {
 									#curl_close($ch);	
 								}					
 							}
-							if($text1 == "++" and $result <= 1)
+							if($arr1[0] == "*" and $result <= 1)
 							{
-								$hoonname = "aaa"; // cut@
+								$hoonname = substr($text, 1); // cut@
 								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
 								{
 									$room=$event['source']['userId'];
@@ -248,22 +248,22 @@ if (!is_null($events['events'])) {
 								{
 									$room=$event['source']['groupId'];
 								}
-								if(preg_match("/^[a-zA-Z&0-9-_]+$/", $hoonname) == 1) 
+								if(preg_match("/^[a-zA-Z&0-9-_]+$*/", $hoonname) == 1) 
 								{
 									//if($hoonname!="S50H17" && $hoonname!="S50M17" && $hoonname!="S50U17")
 									{
 
 										if($event['source']['groupId'] == 'Cefe1b847f360c13579996d5611a24246')
 										{
-											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', 'fibo', '$room' , 'aaa', 'old', '1')";
+											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '1')";
 										}
 										else if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
 										{
-											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', 'fibo', '$room' , 'aaa', 'old', '1')";
+											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '1')";
 										}
 										else
 										{
-											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', 'fibo', '$room' , 'aaa', 'old', '2')";
+											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '2')";
 										}
 										//$sql = "INSERT INTO hoon_check (id, hoonname, room)
 										//		VALUES ('', '$hoonname', '$room')";
