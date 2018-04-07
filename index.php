@@ -104,7 +104,7 @@ if (!is_null($events['events'])) {
 						}
 						
 						$arr1 = str_split($text);
-						if($arr1[0] == "++" || $arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
+						if($text1 == "++" || $arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
 						{
 							$textcut = explode(" ", $text);
 							$result = count($textcut);
@@ -237,7 +237,7 @@ if (!is_null($events['events'])) {
 									#curl_close($ch);	
 								}					
 							}
-							if($arr1[0] == "++" and $result <= 1)
+							if($text1 == "++" and $result <= 1)
 							{
 								$hoonname = "aaa"; // cut@
 								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
