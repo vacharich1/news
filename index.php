@@ -109,7 +109,7 @@ if (!is_null($events['events'])) {
 							$textcut = explode(" ", $text);
 							$result = count($textcut);
 							
-							if($arr1[0] == "!" and $result <= 1)
+							if($arr1[0] == "aa" and $result <= 1)
 							{
 								$hoonname = substr($text, 1); // cut@
 								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
@@ -211,7 +211,7 @@ if (!is_null($events['events'])) {
 								
 							}
 
-							if($arr1[0] == "#" and $result <= 1)
+							if($arr1[0] == "!" and $result <= 1)
 							{
 								$hoonname = substr($text, 1); // cut@
 								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
