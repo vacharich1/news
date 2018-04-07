@@ -120,7 +120,7 @@ if (!is_null($events['events'])) {
 								{
 									$room=$event['source']['groupId'];
 								}
-								if(preg_match("/^[a-zA-Z&0-9-_]+$*/", $hoonname) == 1) 
+								if(preg_match("/^[a-zA-Z&0-9-_]+$/", $hoonname) == 1) 
 								{
 
 
