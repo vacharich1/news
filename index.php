@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 		$text = $event['message']['text'];
 		//1: jayroom Ub5f45b12f0f8f8a3a08e5b52ebbcc96b
 		//2: new room 1 C2363d2668ed92919faff4bb70ca6179c
-		if($event['source']['groupId'] == 'C4fc5bab92fdc9d5f740cf2f8d19b14a1' || $event['source']['groupId'] == 'C761d620d4e3a5c459f5c80e01518c6de' || $event['source']['groupId'] == 'C5d4cb4d85ba666d04f1c6b19d99395f0' || $event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b' || $event['source']['groupId'] == 'C08e9253e559cd164b554ddf4e2d886ca' || $event['source']['groupId'] == 'C22f27adcdfb0d1c7d3808b5b8db98f82' || $event['source']['groupId'] == 'C2363d2668ed92919faff4bb70ca6179c' || $event['source']['groupId'] == 'C2787c6f41f988ddb927bebd44bce1400' || $event['source']['groupId'] == 'C2b9f74004bc9f5220d7349908d04aeb7' || $event['source']['groupId'] == 'Ce512b29b5419ec1d22af4606a6936113')
+		if($event['source']['groupId'] == 'C4fc5bab92fdc9d5f740cf2f8d19b14a1' || $event['source']['groupId'] == 'C761d620d4e3a5c459f5c80e01518c6de' || $event['source']['groupId'] == 'Ca3769d1dbabc257a5763d020bd86e60c' ||  $event['source']['groupId'] == 'C6891ea6174cd762901279873c7188c78' || $event['source']['groupId'] == 'C590f3dac822b0c468241bcbe0c55393e' || $event['source']['groupId'] == 'Cefe1b847f360c13579996d5611a24246' || $event['source']['groupId'] == 'C5d4cb4d85ba666d04f1c6b19d99395f0' || $event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b' || $event['source']['groupId'] == 'C08e9253e559cd164b554ddf4e2d886ca' || $event['source']['groupId'] == 'C22f27adcdfb0d1c7d3808b5b8db98f82' || $event['source']['groupId'] == 'C2363d2668ed92919faff4bb70ca6179c' || $event['source']['groupId'] == 'C2787c6f41f988ddb927bebd44bce1400' || $event['source']['groupId'] == 'C2b9f74004bc9f5220d7349908d04aeb7' || $event['source']['groupId'] == 'Ce512b29b5419ec1d22af4606a6936113')
 		{
 			// Reply only when message sent is in 'text' format
 				if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
@@ -111,7 +111,50 @@ if (!is_null($events['events'])) {
 							
 							if($arr1[0] == "!" and $result <= 1)
 							{
-								
+								$hoonname = substr($text, 1); // cut@
+								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
+								{
+									$room=$event['source']['userId'];
+								}
+								else
+								{
+									$room=$event['source']['groupId'];
+								}
+								if(preg_match("/^[a-zA-Z&0-9-_]+$/", $hoonname) == 1) 
+								{
+									if($event['source']['groupId'] == 'Cefe1b847f360c13579996d5611a24246')
+									{
+										$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '1')";
+									}
+									else if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
+									{
+										$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '1')";
+									}
+									else
+									{
+										$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '2')";
+									}
+									//$sql = "INSERT INTO hoon_check (id, hoonname, room)
+									//		VALUES ('', '$hoonname', '$room')";	
+									if (mysqli_query($link, $sql)) {
+											echo "New record created successfully";
+									} 
+									else {
+											echo "Error: " . $sql . "<br>" . mysqli_error($link);
+									}
+									sleep(0.3);
+									$check ="check1";
+									#echo "work code";
+									$sql = "INSERT INTO `check_capture`(`id`, `check1`) VALUES ('','$check')";
+									if (mysqli_query($link, $sql)) 
+									{
+											echo "New record created successfully";
+									} 
+									else 
+									{
+											echo "Error: " . $sql . "<br>" . mysqli_error($link);
+									}	
+								}		
 							}
 							
 							//send graph
