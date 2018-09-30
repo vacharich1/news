@@ -112,14 +112,7 @@ if (!is_null($events['events'])) {
 							if($arr1[0] == "!" and $result <= 1)
 							{
 								$hoonname = substr($text, 1); // cut@
-								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
-								{
-									$room=$event['source']['userId'];
-								}
-								else
-								{
-									$room=$event['source']['groupId'];
-								}
+								$room=$event['source']['groupId'];
 								if(preg_match("/^[a-zA-Z&0-9-_]+$/", $hoonname) == 1) 
 								{
 									if($event['source']['groupId'] == 'Cefe1b847f360c13579996d5611a24246')
@@ -161,14 +154,7 @@ if (!is_null($events['events'])) {
 							if($textcut[0]=="C" and $result <=3 and $result >1)
 							{
 								  $check ="check1";
-								  if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
-								  {
-									$room=$event['source']['userId'];
-								  }
-								  else
-								  {
-								  	$room=$event['source']['groupId'];
-								  }
+								  $room=$event['source']['groupId'];
 								  if($result<3)
 								  {	
 									  $text=$text." d";
@@ -203,14 +189,7 @@ if (!is_null($events['events'])) {
 							if($arr1[0] == "#" and $result <= 1)
 							{
 								$hoonname = substr($text, 1); // cut@
-								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
-								{
-									$room=$event['source']['userId'];
-								}
-								else
-								{
-									$room=$event['source']['groupId'];
-								}
+								$room=$event['source']['groupId'];
 								if(preg_match("/^[a-zA-Z&0-9-_]+$/", $hoonname) == 1) 
 								{
 									//if($hoonname!="S50H17" && $hoonname!="S50M17" && $hoonname!="S50U17")
