@@ -104,10 +104,15 @@ if (!is_null($events['events'])) {
 						}
 						
 						$arr1 = str_split($text);
-						if($arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
+						if($arr1[0] == "!" || $arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
 						{
 							$textcut = explode(" ", $text);
 							$result = count($textcut);
+							
+							if($arr1[0] == "!" and $result <= 1)
+							{
+								
+							}
 							
 							//send graph
 							if($textcut[0]=="C" and $result <=3 and $result >1)
