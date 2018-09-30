@@ -103,11 +103,60 @@ if (!is_null($events['events'])) {
 							$text="#S&J";
 						}
 						
-						$arr1 = str_split($text);
-						if($arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
+						if($arr1[0] == "!" || $arr1[0] == "#" || $arr1[0] == "c" || $arr1[0] == "C")
 						{
 							$textcut = explode(" ", $text);
 							$result = count($textcut);
+							
+							if($arr1[0] == "!" and $result <= 1)
+							{
+								$hoonname = substr($text, 1); // cut@
+								if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
+								{
+									$room=$event['source']['userId'];
+								}
+								else
+								{
+									$room=$event['source']['groupId'];
+								}
+								if(preg_match("/^[a-zA-Z&0-9-_]+$/", $hoonname) == 1) 
+								{
+
+
+										if($event['source']['groupId'] == 'Cefe1b847f360c13579996d5611a24246')
+										{
+											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '1')";
+										}
+										else if($event['source']['userId'] == 'Ub5f45b12f0f8f8a3a08e5b52ebbcc96b')
+										{
+											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '1')";
+										}
+										else
+										{
+											$sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type, send) VALUES ('', '$hoonname', '$room' , 'fibo', 'old', '2')";
+										}
+										//$sql = "INSERT INTO hoon_check (id, hoonname, room)
+										//		VALUES ('', '$hoonname', '$room')";
+												
+										if (mysqli_query($link, $sql)) {
+												echo "New record created successfully";
+										} 
+										else {
+												echo "Error: " . $sql . "<br>" . mysqli_error($link);
+										}
+										sleep(0.3);
+										$check ="check1";
+										#echo "work code";
+										$sql = "INSERT INTO `check_capture`(`id`, `check1`) VALUES ('','$check')";
+										if (mysqli_query($link, $sql)) {
+												echo "New record created successfully";
+										} 
+										else {
+												echo "Error: " . $sql . "<br>" . mysqli_error($link);
+										}
+									
+								}					
+							}
 							
 							//send graph
 							if($textcut[0]=="C" and $result <=3 and $result >1)
