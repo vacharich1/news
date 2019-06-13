@@ -5,7 +5,7 @@ $accessToken = "EAAGThEMKbNgBAI8nfxPJIeiebppuUbGQW1yaN3Q7e5dHcPOL55ZBj9n4MzCH7xb
  * Webhook for Time Bot- Facebook Messenger Bot
  */
 
-$hub_verify_token = null;
+$hub_verify_token = "testtestjay";
 if(isset($_REQUEST['hub_challenge'])) {
     $challenge = $_REQUEST['hub_challenge'];
     $hub_verify_token = $_REQUEST['hub_verify_token'];
