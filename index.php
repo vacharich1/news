@@ -1,6 +1,6 @@
 ﻿<?php
 $access_token = "EAAGThEMKbNgBAMWK53A6jbtRCE9AYOuzjIMv6s0AiQ3AzSwdb45ZBbASp4Y27vGnFZB93bgWfvZBdKZC9AHCP0RZA2hHRzZCf1MZClfun8bqK6rfs9nvfVMQR4WXakUEz3GW59rO8XvLIyZCH4Vi6fXnQsT5Adp4OZCXqZCzJIrK1kXQZDZD";
-$verify_token = "yellow_duck";
+$verify_token = "linebot";
 $hub_verify_token = null;
 if(isset($_REQUEST['hub_challenge'])) {
  $challenge = $_REQUEST['hub_challenge'];
@@ -18,13 +18,9 @@ $message_to_reply = '';
  */
 
 
-if($isData >0){
-	 foreach($data as $rec){
-	   $message_to_reply = $rec->answer;
-	 }
-}else{
-  $message_to_reply = 'ก๊าบบ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนเป็ด[คำถาม|คำตอบ]';
-}
+
+$message_to_reply = 'ก๊าบบ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์';
+
 
 //API Url
 $url = 'https://graph.facebook.com/v2.6/me/messages?access_token='.$access_token;
