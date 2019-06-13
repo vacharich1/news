@@ -1,11 +1,11 @@
 ﻿<?php
-$hubVerifyToken = "abcderf";
+$hubVerifyToken = "linebot";
 $accessToken = "EAAGThEMKbNgBAMWK53A6jbtRCE9AYOuzjIMv6s0AiQ3AzSwdb45ZBbASp4Y27vGnFZB93bgWfvZBdKZC9AHCP0RZA2hHRzZCf1MZClfun8bqK6rfs9nvfVMQR4WXakUEz3GW59rO8XvLIyZCH4Vi6fXnQsT5Adp4OZCXqZCzJIrK1kXQZDZD";
 
 $challenge = $_REQUEST['hub_challenge'];
 $verify_token = $_REQUEST['hub_verify_token'];
 $mode_token = $_REQUEST['hub.mode'];
-if ($mode_token === 'subscribe' && $verify_token === 'my_token_code') 
+if ($mode_token === 'subscribe' && $verify_token === $hubVerifyToken) 
 {
 	echo $challenge;
 }
