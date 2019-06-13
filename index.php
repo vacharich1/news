@@ -4,10 +4,11 @@ $accessToken = "EAAGThEMKbNgBAMWK53A6jbtRCE9AYOuzjIMv6s0AiQ3AzSwdb45ZBbASp4Y27vG
 
 $challenge = $_REQUEST['hub_challenge'];
 $verify_token = $_REQUEST['hub_verify_token'];
-
-if ($verify_token === 'my_token_code') {
-echo $challenge;
+// Set this Verify Token Value on your Facebook App 
+if ($verify_token === 'testtoken') {
+  echo $challenge;
 }
+
 // check token at setup
 //if ($_REQUEST['hub_verify_token'] === $hubVerifyToken) {
 //  echo $_REQUEST['hub_challenge'];
