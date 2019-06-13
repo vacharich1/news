@@ -4,7 +4,7 @@ $accessToken = "EAAGThEMKbNgBAMWK53A6jbtRCE9AYOuzjIMv6s0AiQ3AzSwdb45ZBbASp4Y27vG
 
 $challenge = $_REQUEST['hub_challenge'];
 $verify_token = $_REQUEST['hub_verify_token'];
-$mode_token = $_REQUEST['hub.mode'];
+$mode_token = $_REQUEST['hub_mode'];
 if ($mode_token === 'subscribe' && $verify_token === $hubVerifyToken) 
 {
 	echo $challenge;
