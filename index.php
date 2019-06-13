@@ -1,28 +1,65 @@
 ﻿<?php
-// parameters
-$hubVerifyToken = 'TOKEN123456abcd';
 $accessToken = "EAAGThEMKbNgBAI8nfxPJIeiebppuUbGQW1yaN3Q7e5dHcPOL55ZBj9n4MzCH7xb5vobhCA6G5ENtRpoXeGaSfmzGBOQDHC2LWG0FzmKwrAWyTJAAdD55SqSYXnHhWgQx7osZAhju3hfpr48uGDFCKTI7bNQis1tMLzOfmkfQZDZD";
-// check token at setup
-if ($_REQUEST['hub_verify_token'] === $hubVerifyToken) {
-  echo $_REQUEST['hub_challenge'];
-  exit;
+
+/**
+ * Webhook for Time Bot- Facebook Messenger Bot
+ */
+
+$hub_verify_token = null;
+if(isset($_REQUEST['hub_challenge'])) {
+    $challenge = $_REQUEST['hub_challenge'];
+    $hub_verify_token = $_REQUEST['hub_verify_token'];
 }
-// handle bot's anwser
+if ($hub_verify_token === $verify_token) {
+    echo $challenge;
+}
 $input = json_decode(file_get_contents('php://input'), true);
-$senderId = $input['entry'][0]['messaging'][0]['sender']['id'];
-$messageText = $input['entry'][0]['messaging'][0]['message']['text'];
-$answer = "I don't understand. Ask me 'hi'.";
-if($messageText == "hi") {
-    $answer = "Hello";
+$sender = $input['entry'][0]['messaging'][0]['sender']['id'];
+$message = $input['entry'][0]['messaging'][0]['message']['text'];
+$message_to_reply = '';
+/**
+ * Some Basic rules to validate incoming messages
+ */
+if(preg_match('[time|current time|now|время|час]', strtolower($message))) {
+    $time = getdate();
+    $hours = $time['hours'];
+    if ($time['minutes']<10) {
+        $minutes = "0".$time['minutes'];
+    } else {
+        $minutes = $time['minutes'];
+    }
+    $response = $hours.":".$minutes;
+    if($response != '') {
+        $message_to_reply = $response;
+    } else {
+        $message_to_reply = "Sorry, I don't know.";
+    }
+} else {
+    $message_to_reply = 'Sorry, I don\'t understand you. I can only tell what time it is now.';
 }
-$response = [
-    'recipient' => [ 'id' => $senderId ],
-    'message' => [ 'text' => $answer ]
-];
-$ch = curl_init('https://graph.facebook.com/v2.6/me/messages?access_token='.$accessToken);
+//API Url
+$url = 'https://graph.facebook.com/v2.6/me/messages?access_token='.$access_token;
+//Initiate cURL.
+$ch = curl_init($url);
+//The JSON data.
+$jsonData = '{
+    "recipient":{
+        "id":"'.$sender.'"
+    },
+    "message":{
+        "text":"'.$message_to_reply.'"
+    }
+}';
+//Encode the array into JSON.
+$jsonDataEncoded = $jsonData;
+//Tell cURL that we want to send a POST request.
 curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-curl_exec($ch);
-curl_close($ch);
-//based on http://stackoverflow.com/questions/36803518
+//Attach our encoded JSON string to the POST fields.
+curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+//Set the content type to application/json
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+//curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+//Execute the request
+if(!empty($input['entry'][0]['messaging'][0]['message'])){
+    $result = curl_exec($ch);
+}
