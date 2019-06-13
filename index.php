@@ -1,11 +1,12 @@
 ﻿<?php
-$accessToken = "EAAGThEMKbNgBAI8nfxPJIeiebppuUbGQW1yaN3Q7e5dHcPOL55ZBj9n4MzCH7xb5vobhCA6G5ENtRpoXeGaSfmzGBOQDHC2LWG0FzmKwrAWyTJAAdD55SqSYXnHhWgQx7osZAhju3hfpr48uGDFCKTI7bNQis1tMLzOfmkfQZDZD";
-
+// parameters
+$verify_token = 'TOKEN123456abcd';
+$accessToken = "EAAGThEMKbNgBAMWK53A6jbtRCE9AYOuzjIMv6s0AiQ3AzSwdb45ZBbASp4Y27vGnFZB93bgWfvZBdKZC9AHCP0RZA2hHRzZCf1MZClfun8bqK6rfs9nvfVMQR4WXakUEz3GW59rO8XvLIyZCH4Vi6fXnQsT5Adp4OZCXqZCzJIrK1kXQZDZD"
 /**
  * Webhook for Time Bot- Facebook Messenger Bot
  */
 
-$hub_verify_token = "testtestjay";
+$hub_verify_token = null;
 if(isset($_REQUEST['hub_challenge'])) {
     $challenge = $_REQUEST['hub_challenge'];
     $hub_verify_token = $_REQUEST['hub_verify_token'];
