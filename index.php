@@ -1,12 +1,15 @@
 ﻿<?php
-$hubVerifyToken = "abcderf";
 $accessToken = "EAAGThEMKbNgBAMWK53A6jbtRCE9AYOuzjIMv6s0AiQ3AzSwdb45ZBbASp4Y27vGnFZB93bgWfvZBdKZC9AHCP0RZA2hHRzZCf1MZClfun8bqK6rfs9nvfVMQR4WXakUEz3GW59rO8XvLIyZCH4Vi6fXnQsT5Adp4OZCXqZCzJIrK1kXQZDZD";
 
-$challenge = $_REQUEST['hub_challenge'];
-$verify_token = $_REQUEST['hub_verify_token'];
-// Set this Verify Token Value on your Facebook App 
-if ($verify_token === 'testtoken') {
-  echo $challenge;
+/* validate verify token needed for setting up web hook */ 
+if (isset($_GET['hub_verify_token'])) { 
+    if ($_GET['hub_verify_token'] === 'testjaybot') {
+        echo $_GET['hub_challenge'];
+        return;
+    } else {
+        echo 'Invalid Verify Token';
+        return;
+    }
 }
 
 // check token at setup
