@@ -1,17 +1,16 @@
 ﻿<?php
+$hubVerifyToken = "abcderf";
 $accessToken = "EAAGThEMKbNgBAMWK53A6jbtRCE9AYOuzjIMv6s0AiQ3AzSwdb45ZBbASp4Y27vGnFZB93bgWfvZBdKZC9AHCP0RZA2hHRzZCf1MZClfun8bqK6rfs9nvfVMQR4WXakUEz3GW59rO8XvLIyZCH4Vi6fXnQsT5Adp4OZCXqZCzJIrK1kXQZDZD";
 
-/* validate verify token needed for setting up web hook */ 
-if (isset($_GET['hub_verify_token'])) { 
-    if ($_GET['hub_verify_token'] === 'testjaybot') {
-        echo $_GET['hub_challenge'];
-        return;
-    } else {
-        echo 'Invalid Verify Token';
-        return;
-    }
+$challenge = $_REQUEST['hub_challenge'];
+$verify_token = $_REQUEST['hub_verify_token'];
+$mode_token = $_REQUEST['hub.mode'];
+if($mode_token && $verify_token)
+{
+	if ($mode_token === 'subscribe' && $verify_token === 'my_token_code') {
+	echo $challenge;
+	}
 }
-
 // check token at setup
 //if ($_REQUEST['hub_verify_token'] === $hubVerifyToken) {
 //  echo $_REQUEST['hub_challenge'];
