@@ -1,7 +1,7 @@
 ﻿<?php
 // parameters
 $verify_token = 'TOKEN123456abcd';
-$accessToken = "EAAGThEMKbNgBAMWK53A6jbtRCE9AYOuzjIMv6s0AiQ3AzSwdb45ZBbASp4Y27vGnFZB93bgWfvZBdKZC9AHCP0RZA2hHRzZCf1MZClfun8bqK6rfs9nvfVMQR4WXakUEz3GW59rO8XvLIyZCH4Vi6fXnQsT5Adp4OZCXqZCzJIrK1kXQZDZD"
+$accessToken = "EAAGThEMKbNgBAA7VCm1IsIK4tIw4yHIkfuO6rGdpc1zjh91Dsd1642zE2YnlXw96jVsJwSRLQyq7enPZBE1k6TlyntlsEHufGwzSvosJhVfMRefceVNTndIjuXCWKl4pqf5hYTTw5SWvyaLCZA7NckDduZCJB84C3ZAxlWT85QZDZD"
 /**
  * Webhook for Time Bot- Facebook Messenger Bot
  */
