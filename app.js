@@ -234,36 +234,7 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
-  if(messageText=="aot")
-  {
-		var mysql = require('mysql');
-		var con = mysql.createConnection({
-		  host     : 'sql6.freemysqlhosting.net',
-		  user     : 'sql6157803',
-		  password : 'XErmELW5R3',
-		  database : 'sql6157803'
-		});
-			  
-		var hoonname = "aot";
-		var room ="2223176154445588";
-		
-		con.connect(function(err) {
-				var sql = "INSERT INTO hoon_check (id, hoonname, room, timeframe, type) VALUES ('', 'hoonname', 'room' , 'aaa', 'old')";
-				//$sql = "INSERT INTO hoon_check (id, hoonname, room)
-				//		VALUES ('', '$hoonname', '$room')";
-				con.query(sql, function (err, result) {
-				  if (err) throw err;
-				  console.log("1 record inserted");
-				});
-		
-				var check ="check1";
-				var sql = "INSERT INTO `check_capture`(`id`, `check1`) VALUES ('','check')";
-				con.query(sql, function (err, result) {
-				  if (err) throw err;
-				  console.log("1 record inserted");
-				});
-		});  
-  }
+
   if (isEcho) {
     // Just logging message echoes to console
     console.log("Received echo for message %s and app %d with metadata %s", 
@@ -338,7 +309,6 @@ function receivedMessage(event) {
 
       default:
         sendTextMessage(senderID, messageText);
-
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
