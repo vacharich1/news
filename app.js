@@ -234,7 +234,6 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
-
   if (isEcho) {
     // Just logging message echoes to console
     console.log("Received echo for message %s and app %d with metadata %s", 
@@ -309,6 +308,7 @@ function receivedMessage(event) {
 
       default:
         sendTextMessage(senderID, messageText);
+
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
