@@ -115,6 +115,7 @@ if (!is_null($events['events'])) {
 							{
 								$hoonname = substr($text, 1); // cut@
 								$room=$event['source']['groupId'];
+								$room = $event['replyToken'];
 								if(preg_match("/^[a-zA-Z&0-9-_]+$/", $hoonname) == 1) 
 								{
 									if($event['source']['groupId'] == 'Cefe1b847f360c13579996d5611a24246')
@@ -157,6 +158,7 @@ if (!is_null($events['events'])) {
 							{
 								  $check ="check1";
 								  $room=$event['source']['groupId'];
+								  $room = $event['replyToken'];
 								  if($result<3)
 								  {	
 									  $text=$text." d";
