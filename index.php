@@ -22,7 +22,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
-	// Loop through each event
+	// Loop through each eve
 	foreach ($events['events'] as $event) {
 		//1: jayroom Ub5f45b12f0f8f8a3a08e5b52ebbcc96b
 		$text = $event['message']['text'];
