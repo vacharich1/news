@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 		{*/
 			if($event['source']['groupId'] == 'C3a2c6e07a8f61c1153ec21a1043a1ee2' || $event['source']['groupId'] == 'C8542b6b5b88a7e15f5bc766e8311dd81' ||
 			   $event['source']['groupId'] == 'C717639f609f5e7e24081b445102af353' || $event['source']['groupId'] == 'C118324ee97aabf967fb1d8a36339acab'
-			   || $event['source']['groupId'] == 'Ca363ed4dc111731fef7ca985fa511eef' || $event['source']['groupId'] == 'C4922a9bfd65e7fc24e3d31c4f6afe23c' || $event['source']['groupId'] == 'Cfeaef4da4e30855ff54b825dabbed961')
+			   || $event['source']['groupId'] == 'Ca363ed4dc111731fef7ca985fa511eef' || $event['source']['groupId'] == 'C4922a9bfd65e7fc24e3d31c4f6afe23c' || $event['source']['groupId'] == 'Cfeaef4da4e30855ff54b825dabbed961' || $event['source']['groupId'] == 'C761d620d4e3a5c459f5c80e01518c6de')
 			{
 			// Reply only when message sent is in 'text' format
 				if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
