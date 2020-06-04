@@ -93,11 +93,11 @@ if (!is_null($events['events'])) {
 						{
 							$text1="111";
 						}
-						if($text1=="+1")
+						if($text1=="1")
 						{
 							$text1="#10";
 						}
-						if($text1=="-1")
+						if($text1=="2")
 						{
 							$text1="#11";
 						}
